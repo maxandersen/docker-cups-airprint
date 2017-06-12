@@ -1,0 +1,18 @@
+version: "3"
+services:
+    aircups:
+      container_name: aircups
+      image: maxandersen/aircups
+      volumes:
+        - ./config:/config
+        - ./:/services
+        # - /etc/avahi/services:/services
+      restart: always
+      environment:
+        CUPSADMIN: "cups"
+        CUPSPASSWORD: "cupsy"
+      expose:
+         - 631
+      ports:
+        - 6310:631
+ 
