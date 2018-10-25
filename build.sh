@@ -1,1 +1,1 @@
-sudo docker build -t maxandersen/cups-airprint
+sudo docker build -t maxandersen/cups-airprint .
