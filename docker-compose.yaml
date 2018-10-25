@@ -6,7 +6,7 @@ services:
       volumes:
         - ./config:/config
         - ./:/services
-        # - /etc/avahi/services:/services
+        - /etc/avahi/services:/services
       restart: always
       environment:
         CUPSADMIN: "cups"
