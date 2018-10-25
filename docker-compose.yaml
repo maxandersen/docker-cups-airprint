@@ -14,5 +14,5 @@ services:
       expose:
          - 631
       ports:
-        - 6310:631
+        - 631:631
  
