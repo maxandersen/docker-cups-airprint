@@ -2,6 +2,9 @@ FROM centos:7
 
 LABEL maintainer="max"
 
+RUN yum install -y epel-release && yum update -y
+RUN yum --enablerepo=epel install -y inotify-tools
+
 RUN yum install -y \
     cups cups-pdf \
     inotify-tools \
@@ -19,7 +22,7 @@ VOLUME /services
 # Add scripts
 ADD root /
 RUN chmod +x /root/*
-CMD ["/root/run_cups.sh"]
+
 
 # Baked-in config file changes
 RUN sed -i 's/Listen localhost:631/Listen 0.0.0.0:631/' /etc/cups/cupsd.conf && \
@@ -30,3 +33,4 @@ RUN sed -i 's/Listen localhost:631/Listen 0.0.0.0:631/' /etc/cups/cupsd.conf && 
 	echo "ServerAlias *" >> /etc/cups/cupsd.conf && \
 	echo "DefaultEncryption Never" >> /etc/cups/cupsd.conf
 
+CMD ["/root/run_cups.sh"]
