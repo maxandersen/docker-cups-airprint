@@ -2,7 +2,7 @@ version: "3"
 services:
     aircups:
       container_name: aircups
-      image: maxandersen/aircups
+      image: maxandersen/cups-airprint
       volumes:
         - ./config:/config
         - ./:/services
